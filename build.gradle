@@ -50,7 +50,5 @@ shadowJar {
 }
 
 nexusStaging {
-    username = NEXUS_USERNAME
-    password = NEXUS_PASSWORD
     serverUrl = 'https://s01.oss.sonatype.org/service/local/'
 }
