@@ -1,5 +1,4 @@
 plugins {
-    id "signing"
     id "maven-publish"
 }
 
@@ -42,17 +41,4 @@ shadowJar {
     archiveClassifier.set("")
     relocate "net.wesjd.anvilgui", "io.github.rysefoxx.inventory.anvilgui"
     exclude "io/github/rysefoxx/inventory/plugin/ItemBuilder.class"
-}
-
-signing {
-    useGpgCmd()
-    sign publishing.publications
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
 }
