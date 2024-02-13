@@ -11,7 +11,7 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '6.1.0' // Downgraded version for compatibility
+    id 'com.github.johnrengelman.shadow' version '7.1.2' // Downgraded version for compatibility
     id 'signing'
     id 'maven-publish'
 }
