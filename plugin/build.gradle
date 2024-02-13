@@ -48,3 +48,11 @@ signing {
     useGpgCmd()
     sign publishing.publications
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
