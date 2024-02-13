@@ -12,7 +12,6 @@ buildscript {
 plugins {
     id 'java-library'
     id 'com.github.johnrengelman.shadow' version '7.1.2' // Downgraded version for compatibility
-    id 'signing'
     id 'maven-publish'
 }
 apply plugin: 'io.codearte.nexus-staging'
@@ -53,12 +52,4 @@ shadowJar {
 
 nexusStaging {
     serverUrl = 'https://s01.oss.sonatype.org/service/local/'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
 }
