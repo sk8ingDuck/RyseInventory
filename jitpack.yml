@@ -2,7 +2,7 @@ jdk:
   - openjdk11
 
 before_install:
-  - chmod +x gradlew
+  - chmod +x gradle
 
 install:
-  - "./gradlew clean build"
+  - ".\gradlew clean build"
