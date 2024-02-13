@@ -2,7 +2,7 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven { url "https://jitpack.io"}
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0'
@@ -11,7 +11,7 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'com.github.johnrengelman.shadow' version '6.1.0' // Downgraded version for compatibility
     id 'signing'
     id 'maven-publish'
 }
@@ -32,7 +32,7 @@ allprojects {
 
 subprojects {
     apply plugin: 'java-library'
-    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'com.github.johnrengelman.shadow' // Ensure this is compatible
 
     repositories {
         mavenLocal()

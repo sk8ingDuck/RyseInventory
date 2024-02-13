@@ -1,8 +1,0 @@
-jdk:
-  - openjdk11
-
-before_install:
-  - chmod +x gradle
-
-install:
-  - ".\gradlew clean build"
