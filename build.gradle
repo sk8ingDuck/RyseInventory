@@ -1,6 +1,8 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
+        maven { url "https://jitpack.io"}
     }
     dependencies {
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0'
