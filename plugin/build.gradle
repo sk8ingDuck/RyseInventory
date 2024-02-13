@@ -42,3 +42,11 @@ shadowJar {
     relocate "net.wesjd.anvilgui", "io.github.rysefoxx.inventory.anvilgui"
     exclude "io/github/rysefoxx/inventory/plugin/ItemBuilder.class"
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

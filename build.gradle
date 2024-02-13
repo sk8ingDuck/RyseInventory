@@ -53,3 +53,11 @@ shadowJar {
 nexusStaging {
     serverUrl = 'https://s01.oss.sonatype.org/service/local/'
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
