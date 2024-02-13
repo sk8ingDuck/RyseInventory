@@ -48,21 +48,3 @@ signing {
     useGpgCmd()
     sign publishing.publications
 }
-
-afterEvaluate {
-    publishing {
-        publications {
-            shadow(MavenPublication) {
-                project.shadow.component(it)
-
-                groupId = "com.github.sk8ingDuck"
-                artifactId = "RyseInventory-Plugin"
-                version = "${project.version}"
-
-                artifact(javadocJar)
-                artifact(sourcesJar)
-            }
-        }
-
-    }
-}
