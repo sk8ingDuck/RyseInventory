@@ -58,6 +58,13 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+
+            groupId = 'io.github.rysefoxx'
+            artifactId = 'inventory'
+            version = '1.6.5'
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
