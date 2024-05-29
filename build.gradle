@@ -1,8 +1,6 @@
 buildscript {
     repositories {
         mavenCentral()
-        google()
-        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0'
@@ -11,14 +9,14 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '8.1.1' // Downgraded version for compatibility
+    id 'signing'
     id 'maven-publish'
 }
 apply plugin: 'io.codearte.nexus-staging'
 
 group = 'io.github.rysefoxx'
 description = 'RyseInventory'
-java.sourceCompatibility = JavaVersion.VERSION_21
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 allprojects {
     tasks.withType(JavaCompile).tap {
@@ -31,13 +29,12 @@ allprojects {
 
 subprojects {
     apply plugin: 'java-library'
-    apply plugin: 'com.github.johnrengelman.shadow' // Ensure this is compatible
 
     repositories {
         mavenLocal()
         mavenCentral()
     }
-    java.sourceCompatibility = JavaVersion.VERSION_21
+    java.sourceCompatibility = JavaVersion.VERSION_1_8
 
     java {
         withSourcesJar()
@@ -45,33 +42,7 @@ subprojects {
     }
 }
 
-shadowJar {
-    archiveClassifier.set("")
-    mergeServiceFiles()
-}
 
 nexusStaging {
     serverUrl = 'https://s01.oss.sonatype.org/service/local/'
-}
-
-publishing {
-    publications {
-        subprojects.each { subproject ->
-            // Dynamically create a publication for each subproject
-            String publicationName = "${subproject.name}Publication"
-            publications.create(publicationName, MavenPublication) {
-                // Use subproject components, assuming java component is available
-                from subproject.components.java
-
-                // Set groupId, artifactId, and version for each subproject
-                groupId = 'io.github.rysefoxx'
-                artifactId = subproject.name
-                version = '1.6.5'
-            }
-        }
-    }
-    repositories {
-        mavenLocal()
-        // You can also define other repositories here if needed
-    }
 }
