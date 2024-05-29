@@ -11,7 +11,7 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '7.1.2' // Downgraded version for compatibility
+    id 'com.github.johnrengelman.shadow' version '8.1.1' // Downgraded version for compatibility
     id 'maven-publish'
 }
 apply plugin: 'io.codearte.nexus-staging'
