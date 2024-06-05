@@ -43,3 +43,15 @@ signing {
     useGpgCmd()
     sign publishing.publications
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = "io.github.rysefoxx.inventory"
+            artifactId = "RyseInventory-Plugin"
+            version = "${project.version}"
+
+            from components.java
+        }
+    }
+}
