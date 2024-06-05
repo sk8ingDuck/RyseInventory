@@ -55,6 +55,8 @@ afterEvaluate {
                 artifactId = "RyseInventory-Plugin"
                 version = "${project.version}"
 
+                from components.java
+
                 artifact(javadocJar)
                 artifact(sourcesJar)
 
