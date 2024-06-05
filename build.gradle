@@ -11,14 +11,14 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '7.1.2' // Downgraded version for compatibility
+    id 'com.github.johnrengelman.shadow' version '8.1.1' // Downgraded version for compatibility
     id 'maven-publish'
 }
 apply plugin: 'io.codearte.nexus-staging'
 
 group = 'io.github.rysefoxx'
 description = 'RyseInventory'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 allprojects {
     tasks.withType(JavaCompile).tap {
@@ -37,7 +37,7 @@ subprojects {
         mavenLocal()
         mavenCentral()
     }
-    java.sourceCompatibility = JavaVersion.VERSION_1_8
+    java.sourceCompatibility = JavaVersion.VERSION_17
 
     java {
         withSourcesJar()
