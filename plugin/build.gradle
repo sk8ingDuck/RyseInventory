@@ -1,5 +1,4 @@
 plugins {
-    id "signing"
     id "maven-publish"
 }
 
@@ -26,7 +25,7 @@ dependencies {
     implementation project(":v1_17")
     implementation project(":v1_16")
     implementation project(":api")
-    implementation 'net.wesjd:anvilgui:1.9.4-SNAPSHOT'
+    implementation 'net.wesjd:anvilgui:1.9.2-SNAPSHOT'
 
     compileOnly "net.kyori:adventure-platform-bukkit:4.2.0"
     compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
@@ -38,20 +37,23 @@ dependencies {
     compileOnly "org.projectlombok:lombok:1.18.24"
 }
 
-
-signing {
-    useGpgCmd()
-    sign publishing.publications
+shadowJar {
+    archiveClassifier.set("")
+    relocate "net.wesjd.anvilgui", "io.github.rysefoxx.inventory.anvilgui"
+    exclude "io/github/rysefoxx/inventory/plugin/ItemBuilder.class"
 }
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = "io.github.rysefoxx.inventory"
-            artifactId = "RyseInventory-Plugin"
-            version = "${project.version}"
-
             from components.java
+
+            groupId = 'io.github.rysefoxx'
+            artifactId = 'inventory'
+            version = '1.6.5'
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
