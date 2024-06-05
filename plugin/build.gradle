@@ -45,10 +45,34 @@ shadowJar {
     exclude "io/github/rysefoxx/inventory/plugin/ItemBuilder.class"
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
+afterEvaluate {
+    publishing {
+        publications {
+            shadow(MavenPublication) {
+                project.shadow.component(it)
+
+                groupId = "io.github.rysefoxx.inventory"
+                artifactId = "RyseInventory-Plugin"
+                version = "${project.version}"
+
+                artifact(javadocJar)
+                artifact(sourcesJar)
+
+                pom {
+                    name = "RyseInventory"
+                    packaging = "jar"
+                    description = "Inventory System"
+                    url = "https://github.com/Rysefoxx/RyseInventory"
+
+
+                    developers {
+                        developer {
+                            id = "Rysefoxx"
+                            name = "Rysefoxx"
+                        }
+                    }
+                }
+            }
         }
     }
 }
