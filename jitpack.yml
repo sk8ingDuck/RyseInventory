@@ -3,6 +3,7 @@ jdk:
 
 install:
   - ./gradlew clean
+  - chmod +x gradlew
 
 script:
   - ./gradlew build
