@@ -7,3 +7,6 @@ install:
 
 script:
   - ./gradlew build
+
+artifacts:
+  - path: build/libs

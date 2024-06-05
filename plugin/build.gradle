@@ -1,9 +1,11 @@
 plugins {
+    id "java"
     id "maven-publish"
 }
 
 group = "io.github.rysefoxx.inventory.plugin"
 description = "RyseInventory"
+version = "1.6.5"
 
 repositories {
     maven {
@@ -47,13 +49,6 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-
-            groupId = 'io.github.rysefoxx'
-            artifactId = 'inventory'
-            version = '1.6.5'
         }
-    }
-    repositories {
-        mavenLocal()
     }
 }
