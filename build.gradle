@@ -11,8 +11,8 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '8.1.1' // Downgraded version for compatibility
     id 'maven-publish'
+    id 'io.github.goooler.shadow' version '8.1.7' // Using the new plugin
 }
 apply plugin: 'io.codearte.nexus-staging'
 
@@ -31,7 +31,7 @@ allprojects {
 
 subprojects {
     apply plugin: 'java-library'
-    apply plugin: 'com.github.johnrengelman.shadow' // Ensure this is compatible
+    apply plugin: 'io.github.goooler.shadow'
 
     repositories {
         mavenLocal()
